@@ -5,33 +5,23 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
  
-    int t; 
-    cin >> t;
-    while (t--) {
-        int ab, bc; 
-        cin >> ab >> bc;
-        string cd;  
-        cin >> cd;
- 
-        int ef = 0; 
-        int gh = 0; 
- 
-        for (int i = 0; i < ab; ++i) {
-            if (cd[i] == '1') {
-          
-                ef = bc;
-            } else {
-                if (ef > 0) {
-                   
-                    ef--;
-                } else {
-                
-                    gh++;
-                }
-            }
+    int ab;
+    cin >> ab;
+    while (ab--) {
+        int bc;
+        cin >> bc;
+        set<int> cd;
+        for (int i = 0; i < bc; ++i) {
+            int de;
+            cin >> de;
+            cd.insert(de);
         }
- 
-        cout << gh << '\n';
+        int de = (int)cd.size();
+        while (!cd.count(de)) {
+            cd.insert(de);
+            de = (int)cd.size();
+        }
+        cout << de << '\n';
     }
     return 0;
 }
